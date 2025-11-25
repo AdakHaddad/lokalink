@@ -50,9 +50,28 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50 md:p-0">
-      <div className="flex items-center justify-center min-h-screen p-4 md:p-0">
-        <div className="w-full max-w-[430px] min-h-[calc(100vh-2rem)] bg-white rounded-3xl shadow-2xl overflow-hidden md:max-w-none md:w-full md:h-full md:rounded-none md:shadow-none md:min-h-screen">
+    <div className="min-h-screen bg-gray-50">
+      {/* Mobile Layout */}
+      <div className="md:hidden flex items-center justify-center min-h-screen p-4">
+        <div className="w-full max-w-[430px] min-h-[calc(100vh-2rem)] bg-white rounded-3xl shadow-2xl overflow-hidden">
+          {currentScreen === 'welcome' && <WelcomeScreen onNavigate={navigateTo} />}
+          {currentScreen === 'login' && <LoginScreen onNavigate={navigateTo} />}
+          {currentScreen === 'register' && <RegisterScreen onNavigate={navigateTo} />}
+          {currentScreen === 'role-selection' && <RoleSelection onSelectRole={handleRoleSelect} />}
+          {currentScreen === 'buyer-home' && <BuyerHome onNavigate={navigateTo} />}
+          {currentScreen === 'product-details' && <ProductDetails product={selectedProduct} onNavigate={navigateTo} />}
+          {currentScreen === 'seller-dashboard' && <SellerDashboard onNavigate={navigateTo} />}
+          {currentScreen === 'product-crud' && <ProductCRUD product={editingProduct} onNavigate={navigateTo} />}
+          {currentScreen === 'seller-profile' && <SellerProfile onNavigate={navigateTo} />}
+          {currentScreen === 'chat' && <ChatScreen onNavigate={navigateTo} />}
+          {currentScreen === 'order' && <OrderFlow product={selectedProduct} onNavigate={navigateTo} />}
+          {currentScreen === 'payment' && <PaymentScreen onNavigate={navigateTo} />}
+        </div>
+      </div>
+
+      {/* Desktop Layout */}
+      <div className="hidden md:block min-h-screen">
+        <div className="w-full h-full bg-white">
           {currentScreen === 'welcome' && <WelcomeScreen onNavigate={navigateTo} />}
           {currentScreen === 'login' && <LoginScreen onNavigate={navigateTo} />}
           {currentScreen === 'register' && <RegisterScreen onNavigate={navigateTo} />}
