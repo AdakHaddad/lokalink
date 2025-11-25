@@ -187,23 +187,29 @@ export function SellerDashboard({ onNavigate }: SellerDashboardProps) {
             </div>
             <span className="text-xs">Dashboard</span>
           </button>
-          <button className="flex flex-col items-center gap-1 text-gray-400">
-            <div className="p-2 rounded-xl">
+          <button 
+            onClick={() => alert('Orders feature coming soon!')}
+            className="flex flex-col items-center gap-1 text-gray-400 hover:text-orange-600 transition-colors"
+          >
+            <div className="p-2 rounded-xl hover:bg-orange-50 transition-colors">
               <Package className="w-6 h-6" />
             </div>
             <span className="text-xs">Orders</span>
           </button>
-          <button className="flex flex-col items-center gap-1 text-gray-400">
-            <div className="p-2 rounded-xl">
+          <button 
+            onClick={() => alert('Analytics feature coming soon!')}
+            className="flex flex-col items-center gap-1 text-gray-400 hover:text-orange-600 transition-colors"
+          >
+            <div className="p-2 rounded-xl hover:bg-orange-50 transition-colors">
               <TrendingUp className="w-6 h-6" />
             </div>
             <span className="text-xs">Analytics</span>
           </button>
           <button 
             onClick={() => onNavigate('seller-profile')}
-            className="flex flex-col items-center gap-1 text-gray-400"
+            className="flex flex-col items-center gap-1 text-gray-400 hover:text-orange-600 transition-colors"
           >
-            <div className="p-2 rounded-xl">
+            <div className="p-2 rounded-xl hover:bg-orange-50 transition-colors">
               <Users className="w-6 h-6" />
             </div>
             <span className="text-xs">Profile</span>
