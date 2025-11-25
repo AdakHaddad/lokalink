@@ -30,12 +30,12 @@ export function SellerDashboard({ onNavigate }: SellerDashboardProps) {
   return (
     <div className="h-full flex flex-col bg-gray-50 overflow-y-auto">
       {/* Header */}
-      <div className="bg-gradient-to-br from-orange-600 to-orange-700 px-6 pt-6 pb-8 rounded-b-3xl">
+      <div className="bg-gradient-to-br from-orange-600 to-orange-700 px-6 pt-6 pb-8 rounded-b-3xl md:px-8 md:pt-8 md:pb-10">
         <div className="flex items-center justify-between mb-6">
-          <button className="text-white">
+          <button className="text-white md:hidden">
             <Menu className="w-6 h-6" />
           </button>
-          <h2 className="text-white">UMKM Dashboard</h2>
+          <h2 className="text-white md:text-xl">UMKM Dashboard</h2>
           <button className="text-white relative">
             <Bell className="w-6 h-6" />
             <div className="absolute top-0 right-0 w-2 h-2 bg-red-500 rounded-full" />
@@ -43,77 +43,89 @@ export function SellerDashboard({ onNavigate }: SellerDashboardProps) {
         </div>
 
         {/* Stats Cards */}
-        <div className="grid grid-cols-2 gap-3">
-          <div className="bg-white/20 backdrop-blur-sm rounded-2xl p-4">
+        <div className="grid grid-cols-2 gap-3 md:grid-cols-4 md:gap-4">
+          <div className="bg-white/20 backdrop-blur-sm rounded-2xl p-4 md:p-6">
             <div className="flex items-center gap-2 mb-2">
-              <ShoppingBag className="w-5 h-5 text-white" />
-              <span className="text-white/80">Total Sales</span>
+              <ShoppingBag className="w-5 h-5 text-white md:w-6 md:h-6" />
+              <span className="text-white/80 md:text-base">Total Sales</span>
             </div>
-            <p className="text-white">Rp 2.4M</p>
+            <p className="text-white md:text-lg">Rp 2.4M</p>
           </div>
-          <div className="bg-white/20 backdrop-blur-sm rounded-2xl p-4">
+          <div className="bg-white/20 backdrop-blur-sm rounded-2xl p-4 md:p-6">
             <div className="flex items-center gap-2 mb-2">
-              <Package className="w-5 h-5 text-white" />
-              <span className="text-white/80">Products</span>
+              <Package className="w-5 h-5 text-white md:w-6 md:h-6" />
+              <span className="text-white/80 md:text-base">Products</span>
             </div>
-            <p className="text-white">24</p>
+            <p className="text-white md:text-lg">24</p>
           </div>
-          <div className="bg-white/20 backdrop-blur-sm rounded-2xl p-4">
+          <div className="bg-white/20 backdrop-blur-sm rounded-2xl p-4 md:p-6">
             <div className="flex items-center gap-2 mb-2">
-              <TrendingUp className="w-5 h-5 text-white" />
-              <span className="text-white/80">Orders</span>
+              <TrendingUp className="w-5 h-5 text-white md:w-6 md:h-6" />
+              <span className="text-white/80 md:text-base">Orders</span>
             </div>
-            <p className="text-white">156</p>
+            <p className="text-white md:text-lg">156</p>
           </div>
-          <div className="bg-white/20 backdrop-blur-sm rounded-2xl p-4">
+          <div className="bg-white/20 backdrop-blur-sm rounded-2xl p-4 md:p-6">
             <div className="flex items-center gap-2 mb-2">
-              <Users className="w-5 h-5 text-white" />
-              <span className="text-white/80">Customers</span>
+              <Users className="w-5 h-5 text-white md:w-6 md:h-6" />
+              <span className="text-white/80 md:text-base">Customers</span>
             </div>
-            <p className="text-white">89</p>
+            <p className="text-white md:text-lg">89</p>
           </div>
         </div>
       </div>
 
       {/* Quick Actions */}
-      <div className="px-6 py-6">
+      <div className="px-6 py-6 md:px-8 md:py-8">
         <div className="flex items-center justify-between mb-4">
-          <h2>Quick Actions</h2>
+          <h2 className="md:text-xl">Quick Actions</h2>
         </div>
-        <div className="grid grid-cols-2 gap-3">
+        <div className="grid grid-cols-2 gap-3 md:grid-cols-4 md:gap-4">
           <button
             onClick={() => onNavigate('product-crud', { editProduct: null })}
-            className="bg-emerald-50 border-2 border-emerald-200 rounded-2xl p-6 hover:bg-emerald-100 transition-colors"
+            className="bg-emerald-50 border-2 border-emerald-200 rounded-2xl p-6 hover:bg-emerald-100 transition-colors md:p-8"
           >
-            <div className="bg-emerald-600 w-12 h-12 rounded-xl flex items-center justify-center mb-3 mx-auto">
-              <Plus className="w-6 h-6 text-white" />
+            <div className="bg-emerald-600 w-12 h-12 rounded-xl flex items-center justify-center mb-3 mx-auto md:w-16 md:h-16">
+              <Plus className="w-6 h-6 text-white md:w-8 md:h-8" />
             </div>
-            <p className="text-center text-gray-900">Add Product</p>
+            <p className="text-center text-gray-900 md:text-base">Add Product</p>
           </button>
           <button
             onClick={() => onNavigate('seller-profile')}
-            className="bg-blue-50 border-2 border-blue-200 rounded-2xl p-6 hover:bg-blue-100 transition-colors"
+            className="bg-blue-50 border-2 border-blue-200 rounded-2xl p-6 hover:bg-blue-100 transition-colors md:p-8"
           >
-            <div className="bg-blue-600 w-12 h-12 rounded-xl flex items-center justify-center mb-3 mx-auto">
-              <Edit className="w-6 h-6 text-white" />
+            <div className="bg-blue-600 w-12 h-12 rounded-xl flex items-center justify-center mb-3 mx-auto md:w-16 md:h-16">
+              <Edit className="w-6 h-6 text-white md:w-8 md:h-8" />
             </div>
-            <p className="text-center text-gray-900">Edit Profile</p>
+            <p className="text-center text-gray-900 md:text-base">Edit Profile</p>
+          </button>
+          <button className="bg-purple-50 border-2 border-purple-200 rounded-2xl p-6 hover:bg-purple-100 transition-colors md:p-8">
+            <div className="bg-purple-600 w-12 h-12 rounded-xl flex items-center justify-center mb-3 mx-auto md:w-16 md:h-16">
+              <TrendingUp className="w-6 h-6 text-white md:w-8 md:h-8" />
+            </div>
+            <p className="text-center text-gray-900 md:text-base">Analytics</p>
+          </button>
+          <button className="bg-orange-50 border-2 border-orange-200 rounded-2xl p-6 hover:bg-orange-100 transition-colors md:p-8">
+            <div className="bg-orange-600 w-12 h-12 rounded-xl flex items-center justify-center mb-3 mx-auto md:w-16 md:h-16">
+              <Package className="w-6 h-6 text-white md:w-8 md:h-8" />
+            </div>
+            <p className="text-center text-gray-900 md:text-base">Orders</p>
           </button>
         </div>
       </div>
 
       {/* Products List */}
-      <div className="px-6 pb-6">
+      <div className="px-6 pb-6 md:px-8 md:pb-8">
         <div className="flex items-center justify-between mb-4">
-          <h2>My Products</h2>
-          <button className="text-orange-600">View All</button>
+          <h2 className="md:text-xl">My Products</h2>
+          <button className="text-orange-600 md:text-base">View All</button>
         </div>
 
-        <div className="space-y-3">
+        <div className="space-y-3 md:space-y-4">
           {mockSellerProducts.map((product) => (
-            <div key={product.id} className="bg-white rounded-2xl p-4 shadow-sm">
-              <div className="flex gap-4">
-                <div className="w-20 h-20 rounded-xl overflow-hidden flex-shrink-0">
+            <div key={product.id} className="bg-white rounded-2xl p-4 shadow-sm md:p-6 md:rounded-3xl">
+              <div className="flex gap-4 md:gap-6">
+                <div className="w-20 h-20 rounded-xl overflow-hidden flex-shrink-0 md:w-24 md:h-24">
                   <ImageWithFallback
                     src={product.image}
                     alt={product.name}
@@ -123,14 +135,14 @@ export function SellerDashboard({ onNavigate }: SellerDashboardProps) {
                 <div className="flex-1 min-w-0">
                   <div className="flex items-start justify-between mb-2">
                     <div className="flex-1 min-w-0">
-                      <h3 className="text-gray-900 mb-1 truncate">{product.name}</h3>
-                      <p className="text-orange-600">{product.price}</p>
+                      <h3 className="text-gray-900 mb-1 truncate md:text-lg">{product.name}</h3>
+                      <p className="text-orange-600 md:text-base">{product.price}</p>
                     </div>
-                    <span className="bg-emerald-100 text-emerald-700 px-2 py-1 rounded-lg text-xs ml-2">
+                    <span className="bg-emerald-100 text-emerald-700 px-2 py-1 rounded-lg text-xs ml-2 md:px-3 md:py-1.5 md:text-sm">
                       Active
                     </span>
                   </div>
-                  <div className="flex items-center gap-4 text-gray-600">
+                  <div className="flex items-center gap-4 text-gray-600 md:text-sm">
                     <span>Stock: {product.stock}</span>
                     <span>•</span>
                     <span>Sold: {product.sold}</span>
@@ -139,20 +151,20 @@ export function SellerDashboard({ onNavigate }: SellerDashboardProps) {
               </div>
               
               {/* Action Buttons */}
-              <div className="flex gap-2 mt-4 pt-4 border-t border-gray-100">
-                <button className="flex-1 py-2 bg-gray-50 text-gray-700 rounded-xl flex items-center justify-center gap-2 hover:bg-gray-100 transition-colors">
-                  <Eye className="w-4 h-4" />
+              <div className="flex gap-2 mt-4 pt-4 border-t border-gray-100 md:gap-3">
+                <button className="flex-1 py-2 bg-gray-50 text-gray-700 rounded-xl flex items-center justify-center gap-2 hover:bg-gray-100 transition-colors md:py-3 md:text-sm">
+                  <Eye className="w-4 h-4 md:w-5 md:h-5" />
                   View
                 </button>
                 <button
                   onClick={() => onNavigate('product-crud', { editProduct: product })}
-                  className="flex-1 py-2 bg-orange-50 text-orange-600 rounded-xl flex items-center justify-center gap-2 hover:bg-orange-100 transition-colors"
+                  className="flex-1 py-2 bg-orange-50 text-orange-600 rounded-xl flex items-center justify-center gap-2 hover:bg-orange-100 transition-colors md:py-3 md:text-sm"
                 >
-                  <Edit className="w-4 h-4" />
+                  <Edit className="w-4 h-4 md:w-5 md:h-5" />
                   Edit
                 </button>
-                <button className="py-2 px-4 bg-red-50 text-red-600 rounded-xl hover:bg-red-100 transition-colors">
-                  <Trash2 className="w-4 h-4" />
+                <button className="py-2 px-4 bg-red-50 text-red-600 rounded-xl hover:bg-red-100 transition-colors md:py-3 md:px-6 md:text-sm">
+                  <Trash2 className="w-4 h-4 md:w-5 md:h-5" />
                 </button>
               </div>
             </div>
@@ -161,7 +173,7 @@ export function SellerDashboard({ onNavigate }: SellerDashboardProps) {
       </div>
 
       {/* Bottom Navigation */}
-      <div className="sticky bottom-0 bg-white border-t border-gray-100 px-6 py-4 rounded-t-3xl shadow-lg mt-auto">
+      <div className="sticky bottom-0 bg-white border-t border-gray-100 px-6 py-4 rounded-t-3xl shadow-lg mt-auto md:hidden">
         <div className="flex items-center justify-around">
           <button className="flex flex-col items-center gap-1 text-orange-600">
             <div className="p-2 bg-orange-50 rounded-xl">

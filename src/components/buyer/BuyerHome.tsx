@@ -58,14 +58,14 @@ export function BuyerHome({ onNavigate }: BuyerHomeProps) {
   return (
     <div className="h-full flex flex-col bg-gray-50">
       {/* Header */}
-      <div className="bg-white px-6 pt-6 pb-4 rounded-b-3xl shadow-sm">
+      <div className="bg-white px-6 pt-6 pb-4 rounded-b-3xl shadow-sm md:px-8 md:pt-8 md:pb-6">
         <div className="flex items-center justify-between mb-4">
-          <button className="p-2">
+          <button className="p-2 md:hidden">
             <Menu className="w-6 h-6 text-gray-700" />
           </button>
           <div className="flex items-center gap-1 text-emerald-600">
             <MapPin className="w-5 h-5" />
-            <span>Jakarta, ID</span>
+            <span className="md:text-lg">Jakarta, ID</span>
           </div>
           <button className="p-2 relative">
             <Bell className="w-6 h-6 text-gray-700" />
@@ -79,7 +79,7 @@ export function BuyerHome({ onNavigate }: BuyerHomeProps) {
           <input
             type="text"
             placeholder="Cari produk lokal..."
-            className="w-full pl-12 pr-12 py-3.5 bg-gray-50 border border-gray-200 rounded-2xl focus:outline-none focus:ring-2 focus:ring-emerald-500"
+            className="w-full pl-12 pr-12 py-3.5 bg-gray-50 border border-gray-200 rounded-2xl focus:outline-none focus:ring-2 focus:ring-emerald-500 md:py-4 md:text-lg"
           />
           <button 
             onClick={() => setShowFilterModal(true)}
@@ -90,12 +90,12 @@ export function BuyerHome({ onNavigate }: BuyerHomeProps) {
         </div>
 
         {/* Categories */}
-        <div className="flex gap-2 overflow-x-auto pb-2 -mx-6 px-6 scrollbar-hide">
+        <div className="flex gap-2 overflow-x-auto pb-2 -mx-6 px-6 scrollbar-hide md:-mx-8 md:px-8">
           {categories.map((cat) => (
             <button
               key={cat}
               onClick={() => setActiveCategory(cat)}
-              className={`px-5 py-2 rounded-full whitespace-nowrap transition-colors ${
+              className={`px-5 py-2 rounded-full whitespace-nowrap transition-colors md:px-6 md:py-3 md:text-base ${
                 activeCategory === cat
                   ? 'bg-emerald-600 text-white'
                   : 'bg-gray-100 text-gray-600'
@@ -108,62 +108,62 @@ export function BuyerHome({ onNavigate }: BuyerHomeProps) {
       </div>
 
       {/* Map Preview */}
-      <div className="mx-6 my-4 h-48 bg-gray-200 rounded-3xl overflow-hidden relative">
+      <div className="mx-6 my-4 h-48 bg-gray-200 rounded-3xl overflow-hidden relative md:mx-8 md:h-64">
         <div className="absolute inset-0 bg-gradient-to-br from-emerald-400 to-blue-500 opacity-30" />
         <div className="absolute inset-0 flex items-center justify-center">
           <div className="text-center">
-            <MapPin className="w-12 h-12 text-emerald-600 mx-auto mb-2" />
-            <p className="text-gray-700">Tampilan Peta</p>
-            <p className="text-gray-500">Menampilkan 12 UMKM terdekat</p>
+            <MapPin className="w-12 h-12 text-emerald-600 mx-auto mb-2 md:w-16 md:h-16" />
+            <p className="text-gray-700 md:text-lg">Tampilan Peta</p>
+            <p className="text-gray-500 md:text-base">Menampilkan 12 UMKM terdekat</p>
           </div>
         </div>
         {/* Mock location pins */}
-        <div className="absolute top-12 left-16 w-8 h-8 bg-emerald-600 rounded-full flex items-center justify-center shadow-lg">
+        <div className="absolute top-12 left-16 w-8 h-8 bg-emerald-600 rounded-full flex items-center justify-center shadow-lg md:top-16 md:left-24 md:w-10 md:h-10">
           <div className="w-3 h-3 bg-white rounded-full" />
         </div>
-        <div className="absolute top-24 right-20 w-8 h-8 bg-orange-600 rounded-full flex items-center justify-center shadow-lg">
+        <div className="absolute top-24 right-20 w-8 h-8 bg-orange-600 rounded-full flex items-center justify-center shadow-lg md:top-32 md:right-32 md:w-10 md:h-10">
           <div className="w-3 h-3 bg-white rounded-full" />
         </div>
-        <div className="absolute bottom-16 left-1/3 w-8 h-8 bg-blue-600 rounded-full flex items-center justify-center shadow-lg">
+        <div className="absolute bottom-16 left-1/3 w-8 h-8 bg-blue-600 rounded-full flex items-center justify-center shadow-lg md:bottom-24 md:w-10 md:h-10">
           <div className="w-3 h-3 bg-white rounded-full" />
         </div>
       </div>
 
       {/* Products Grid */}
-      <div className="flex-1 overflow-y-auto px-6 pb-24">
+      <div className="flex-1 overflow-y-auto px-6 pb-24 md:px-8 md:pb-8">
         <div className="flex items-center justify-between mb-4">
-          <h2>Produk Terdekat</h2>
-          <button className="text-emerald-600">Lihat Semua</button>
+          <h2 className="md:text-xl">Produk Terdekat</h2>
+          <button className="text-emerald-600 md:text-base">Lihat Semua</button>
         </div>
 
-        <div className="grid grid-cols-2 gap-4">
+        <div className="grid grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
           {mockProducts.map((product) => (
             <button
               key={product.id}
               onClick={() => onNavigate('product-details', { product })}
-              className="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-shadow text-left"
+              className="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-shadow text-left md:rounded-3xl"
             >
-              <div className="relative h-32">
+              <div className="relative h-32 md:h-40">
                 <ImageWithFallback
                   src={product.image}
                   alt={product.name}
                   className="w-full h-full object-cover"
                 />
-                <button className="absolute top-2 right-2 bg-white/90 p-1.5 rounded-full">
-                  <Heart className="w-4 h-4 text-gray-600" />
+                <button className="absolute top-2 right-2 bg-white/90 p-1.5 rounded-full md:top-3 md:right-3 md:p-2">
+                  <Heart className="w-4 h-4 text-gray-600 md:w-5 md:h-5" />
                 </button>
-                <div className="absolute bottom-2 left-2 bg-emerald-600 text-white px-2 py-1 rounded-lg">
+                <div className="absolute bottom-2 left-2 bg-emerald-600 text-white px-2 py-1 rounded-lg md:bottom-3 md:left-3 md:px-3 md:py-1.5 md:text-sm">
                   {product.distance}
                 </div>
               </div>
-              <div className="p-3">
-                <h3 className="text-gray-900 mb-1 line-clamp-1">{product.name}</h3>
-                <p className="text-gray-500 mb-2">{product.seller}</p>
+              <div className="p-3 md:p-4">
+                <h3 className="text-gray-900 mb-1 line-clamp-1 md:text-base">{product.name}</h3>
+                <p className="text-gray-500 mb-2 md:text-sm">{product.seller}</p>
                 <div className="flex items-center justify-between">
-                  <span className="text-emerald-600">{product.price}</span>
+                  <span className="text-emerald-600 md:text-base">{product.price}</span>
                   <div className="flex items-center gap-1">
                     <span className="text-yellow-500">★</span>
-                    <span className="text-gray-600">{product.rating}</span>
+                    <span className="text-gray-600 md:text-sm">{product.rating}</span>
                   </div>
                 </div>
               </div>
@@ -173,7 +173,7 @@ export function BuyerHome({ onNavigate }: BuyerHomeProps) {
       </div>
 
       {/* Bottom Navigation */}
-      <div className="absolute bottom-0 left-0 right-0 bg-white border-t border-gray-100 px-6 py-4 rounded-t-3xl shadow-lg">
+      <div className="absolute bottom-0 left-0 right-0 bg-white border-t border-gray-100 px-6 py-4 rounded-t-3xl shadow-lg md:hidden">
         <div className="flex items-center justify-around">
           <button className="flex flex-col items-center gap-1 text-emerald-600">
             <div className="p-2 bg-emerald-50 rounded-xl">
@@ -210,20 +210,22 @@ export function BuyerHome({ onNavigate }: BuyerHomeProps) {
 
       {/* Filter Modal */}
       {showFilterModal && (
-        <div className="absolute inset-0 bg-black/50 flex items-end z-50">
-          <div className="bg-white w-full rounded-t-3xl p-6 max-h-[80vh] overflow-y-auto">
+        <div className="absolute inset-0 bg-black/50 flex items-end z-50 md:items-center md:justify-center">
+          <div className="bg-white w-full rounded-t-3xl p-6 max-h-[80vh] overflow-y-auto md:w-auto md:max-w-md md:rounded-3xl md:max-h-[90vh]">
             <div className="flex items-center justify-between mb-6">
-              <h2>Filter</h2>
-              <button onClick={() => setShowFilterModal(false)} className="text-gray-500">✕</button>
+              <h2 className="md:text-lg">Filter</h2>
+              <button onClick={() => setShowFilterModal(false)} className="text-gray-500">
+                <X className="w-6 h-6" />
+              </button>
             </div>
             
             <div className="space-y-6">
               <div>
-                <h3 className="mb-3">Jarak</h3>
+                <h3 className="mb-3 md:text-base">Jarak</h3>
                 <div className="space-y-2">
                   {['< 1 km', '1-3 km', '3-5 km', '> 5 km'].map((dist) => (
-                    <label key={dist} className="flex items-center gap-3">
-                      <input type="checkbox" className="w-5 h-5 text-emerald-600 rounded" />
+                    <label key={dist} className="flex items-center gap-3 md:text-base">
+                      <input type="checkbox" className="w-5 h-5 text-emerald-600 rounded md:w-6 md:h-6" />
                       <span>{dist}</span>
                     </label>
                   ))}
@@ -231,11 +233,11 @@ export function BuyerHome({ onNavigate }: BuyerHomeProps) {
               </div>
 
               <div>
-                <h3 className="mb-3">Rentang Harga</h3>
+                <h3 className="mb-3 md:text-base">Rentang Harga</h3>
                 <div className="space-y-2">
                   {['< Rp 50.000', 'Rp 50.000 - 100.000', '> Rp 100.000'].map((price) => (
-                    <label key={price} className="flex items-center gap-3">
-                      <input type="checkbox" className="w-5 h-5 text-emerald-600 rounded" />
+                    <label key={price} className="flex items-center gap-3 md:text-base">
+                      <input type="checkbox" className="w-5 h-5 text-emerald-600 rounded md:w-6 md:h-6" />
                       <span>{price}</span>
                     </label>
                   ))}
@@ -243,11 +245,11 @@ export function BuyerHome({ onNavigate }: BuyerHomeProps) {
               </div>
 
               <div>
-                <h3 className="mb-3">Rating</h3>
+                <h3 className="mb-3 md:text-base">Rating</h3>
                 <div className="space-y-2">
                   {['4.5+ ⭐', '4.0+ ⭐', '3.5+ ⭐'].map((rating) => (
-                    <label key={rating} className="flex items-center gap-3">
-                      <input type="checkbox" className="w-5 h-5 text-emerald-600 rounded" />
+                    <label key={rating} className="flex items-center gap-3 md:text-base">
+                      <input type="checkbox" className="w-5 h-5 text-emerald-600 rounded md:w-6 md:h-6" />
                       <span>{rating}</span>
                     </label>
                   ))}
@@ -258,13 +260,13 @@ export function BuyerHome({ onNavigate }: BuyerHomeProps) {
             <div className="flex gap-3 mt-8">
               <button 
                 onClick={() => setShowFilterModal(false)}
-                className="flex-1 py-4 border border-gray-300 rounded-2xl"
+                className="flex-1 py-4 border border-gray-300 rounded-2xl md:py-3 md:text-base"
               >
                 Reset
               </button>
               <button 
                 onClick={() => setShowFilterModal(false)}
-                className="flex-1 py-4 bg-emerald-600 text-white rounded-2xl"
+                className="flex-1 py-4 bg-emerald-600 text-white rounded-2xl md:py-3 md:text-base"
               >
                 Terapkan Filter
               </button>
