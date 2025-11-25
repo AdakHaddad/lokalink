@@ -99,13 +99,19 @@ export function SellerDashboard({ onNavigate }: SellerDashboardProps) {
             </div>
             <p className="text-center text-gray-900 md:text-base">Edit Profile</p>
           </button>
-          <button className="bg-purple-50 border-2 border-purple-200 rounded-2xl p-6 hover:bg-purple-100 transition-colors md:p-8">
+          <button 
+            onClick={() => console.log('Analytics clicked')}
+            className="bg-purple-50 border-2 border-purple-200 rounded-2xl p-6 hover:bg-purple-100 transition-colors md:p-8"
+          >
             <div className="bg-purple-600 w-12 h-12 rounded-xl flex items-center justify-center mb-3 mx-auto md:w-16 md:h-16">
               <TrendingUp className="w-6 h-6 text-white md:w-8 md:h-8" />
             </div>
             <p className="text-center text-gray-900 md:text-base">Analytics</p>
           </button>
-          <button className="bg-orange-50 border-2 border-orange-200 rounded-2xl p-6 hover:bg-orange-100 transition-colors md:p-8">
+          <button 
+            onClick={() => console.log('Orders clicked')}
+            className="bg-orange-50 border-2 border-orange-200 rounded-2xl p-6 hover:bg-orange-100 transition-colors md:p-8"
+          >
             <div className="bg-orange-600 w-12 h-12 rounded-xl flex items-center justify-center mb-3 mx-auto md:w-16 md:h-16">
               <Package className="w-6 h-6 text-white md:w-8 md:h-8" />
             </div>
