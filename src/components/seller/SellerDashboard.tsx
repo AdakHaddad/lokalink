@@ -179,7 +179,7 @@ export function SellerDashboard({ onNavigate }: SellerDashboardProps) {
       </div>
 
       {/* Bottom Navigation */}
-      <div className="sticky bottom-0 bg-white border-t border-gray-100 px-6 py-4 rounded-t-3xl shadow-lg mt-auto md:hidden">
+      <div className="fixed bottom-0 left-0 right-0 bg-white border-t border-gray-100 px-6 py-4 rounded-t-3xl shadow-lg md:hidden z-10">
         <div className="flex items-center justify-around">
           <button className="flex flex-col items-center gap-1 text-orange-600">
             <div className="p-2 bg-orange-50 rounded-xl">
