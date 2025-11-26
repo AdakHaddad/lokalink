@@ -99,8 +99,8 @@ export function SellerDashboard({ onNavigate }: SellerDashboardProps) {
             </div>
             <p className="text-center text-gray-900 md:text-base">Edit Profile</p>
           </button>
-          <button 
-            onClick={() => alert('Analytics feature coming soon!')}
+          <button
+            onClick={() => onNavigate('analytics')}
             className="bg-purple-50 border-2 border-purple-200 rounded-2xl p-6 hover:bg-purple-100 transition-colors md:p-8"
           >
             <div className="bg-purple-600 w-12 h-12 rounded-xl flex items-center justify-center mb-3 mx-auto md:w-16 md:h-16">
@@ -108,8 +108,8 @@ export function SellerDashboard({ onNavigate }: SellerDashboardProps) {
             </div>
             <p className="text-center text-gray-900 md:text-base">Analytics</p>
           </button>
-          <button 
-            onClick={() => alert('Orders feature coming soon!')}
+          <button
+            onClick={() => onNavigate('order-details')}
             className="bg-orange-50 border-2 border-orange-200 rounded-2xl p-6 hover:bg-orange-100 transition-colors md:p-8"
           >
             <div className="bg-orange-600 w-12 h-12 rounded-xl flex items-center justify-center mb-3 mx-auto md:w-16 md:h-16">

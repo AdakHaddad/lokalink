@@ -8,6 +8,8 @@ import { ProductDetails } from './components/buyer/ProductDetails';
 import { SellerDashboard } from './components/seller/SellerDashboard';
 import { ProductCRUD } from './components/seller/ProductCRUD';
 import { SellerProfile } from './components/seller/SellerProfile';
+import { AnalyticsScreen } from './components/seller/AnalyticsScreen';
+import { OrderDetails } from './components/seller/OrderDetails';
 import { ChatScreen } from './components/shared/ChatScreen';
 import { OrderFlow } from './components/shared/OrderFlow';
 import { PaymentScreen } from './components/shared/PaymentScreen';
@@ -22,6 +24,8 @@ type Screen =
   | 'seller-dashboard'
   | 'product-crud'
   | 'seller-profile'
+  | 'analytics'
+  | 'order-details'
   | 'chat'
   | 'order'
   | 'payment';
@@ -63,6 +67,8 @@ export default function App() {
           {currentScreen === 'seller-dashboard' && <SellerDashboard onNavigate={navigateTo} />}
           {currentScreen === 'product-crud' && <ProductCRUD product={editingProduct} onNavigate={navigateTo} />}
           {currentScreen === 'seller-profile' && <SellerProfile onNavigate={navigateTo} />}
+          {currentScreen === 'analytics' && <AnalyticsScreen onNavigate={navigateTo} />}
+          {currentScreen === 'order-details' && <OrderDetails onNavigate={navigateTo} />}
           {currentScreen === 'chat' && <ChatScreen onNavigate={navigateTo} />}
           {currentScreen === 'order' && <OrderFlow product={selectedProduct} onNavigate={navigateTo} />}
           {currentScreen === 'payment' && <PaymentScreen onNavigate={navigateTo} />}

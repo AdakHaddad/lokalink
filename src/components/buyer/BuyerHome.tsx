@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Search, MapPin, Filter, Menu, Bell, Heart, ShoppingCart, MessageCircle } from 'lucide-react';
+import { Search, MapPin, Filter, Menu, Bell, Heart, ShoppingCart, MessageCircle, X } from 'lucide-react';
 import { ImageWithFallback } from '../figma/ImageWithFallback';
 
 interface BuyerHomeProps {
@@ -190,7 +190,10 @@ export function BuyerHome({ onNavigate }: BuyerHomeProps) {
             </div>
             <span className="text-xs">Pesan</span>
           </button>
-          <button className="flex flex-col items-center gap-1 text-gray-400">
+          <button
+            onClick={() => onNavigate('order')}
+            className="flex flex-col items-center gap-1 text-gray-400"
+          >
             <div className="p-2 rounded-xl relative">
               <ShoppingCart className="w-6 h-6" />
               <div className="absolute -top-1 -right-1 bg-red-500 text-white text-xs w-5 h-5 rounded-full flex items-center justify-center">
@@ -199,7 +202,10 @@ export function BuyerHome({ onNavigate }: BuyerHomeProps) {
             </div>
             <span className="text-xs">Keranjang</span>
           </button>
-          <button className="flex flex-col items-center gap-1 text-gray-400">
+          <button
+            onClick={() => onNavigate('buyer-home')}
+            className="flex flex-col items-center gap-1 text-gray-400"
+          >
             <div className="p-2 rounded-xl">
               <Heart className="w-6 h-6" />
             </div>
@@ -210,7 +216,7 @@ export function BuyerHome({ onNavigate }: BuyerHomeProps) {
 
       {/* Filter Modal */}
       {showFilterModal && (
-        <div className="absolute inset-0 bg-black/50 flex items-end z-50 md:items-center md:justify-center">
+        <div className="fixed inset-0 bg-black/50 flex items-end z-50 md:items-center md:justify-center">
           <div className="bg-white w-full rounded-t-3xl p-6 max-h-[80vh] overflow-y-auto md:w-auto md:max-w-md md:rounded-3xl md:max-h-[90vh]">
             <div className="flex items-center justify-between mb-6">
               <h2 className="md:text-lg">Filter</h2>
